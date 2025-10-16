@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>記帳紀錄</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>📜 記帳紀錄</h1>
+  </header>
+
+  <main>
+    <section>
+      <ul id="recordList" class="record-list"></ul>
+    </section>
+
+    <section>
+      <button onclick="window.location.href='add-record.html'">＋ 新增記帳</button>
+      <button onclick="window.location.href='dashboard.html'">⬅ 回首頁</button>
+    </section>
+
+    <section>
+    <h2>🔍 搜尋與篩選</h2>
+    <input type="text" id="searchInput" placeholder="輸入關鍵字（例如 早餐 或 200）">
+    <select id="filterCategory">
+      <option value="">全部分類</option>
+    </select>
+  </section>
+
+  <section>
+    <ul id="recordList" class="record-list"></ul>
+  </section>
+
+  <section>
+    <button onclick="window.location.href='add-record.html'">＋ 新增記帳</button>
+    <button onclick="window.location.href='dashboard.html'">⬅ 回首頁</button>
+  </section>
+
+    <!-- 編輯用彈出視窗 -->
+    <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>✏️ 編輯記帳</h2>
+
+        <label>金額：
+          <input type="number" id="editAmount">
+        </label>
+
+        <label>備註：
+          <input type="text" id="editNote">
+        </label>
+
+        <label>分類：
+          <select id="editCategory"></select>
+        </label>
+
+        <label>類型：
+          <label><input type="radio" name="editType" value="income"> 收入</label>
+          <label><input type="radio" name="editType" value="expense"> 支出</label>
+        </label>
+
+        <div class="modal-buttons">
+          <button id="saveEditBtn">💾 儲存</button>
+          <button id="cancelEditBtn">取消</button>
+        </div>
+    </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 SimpleBudget 記帳系統</p>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/record.js"></script>
+</body>
+</html>

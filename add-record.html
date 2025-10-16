@@ -1,0 +1,35 @@
+<form id="recordForm">
+  <input type="number" id="amount" placeholder="金額" required />
+  <select id="category"></select>
+  <label><input type="radio" name="type" value="income" checked> 收入</label>
+  <label><input type="radio" name="type" value="expense"> 支出</label>
+  <input type="text" id="note" placeholder="備註" />
+  <button type="submit">儲存</button>
+</form>
+
+<script src="js/storage.js"></script>
+<script>
+  const categorySelect = document.getElementById("category");
+  const categories = Storage.getCategories();
+  categories.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = c;
+    categorySelect.appendChild(opt);
+  });
+
+  document.getElementById("recordForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const record = {
+      id: Date.now(),
+      amount: +document.getElementById("amount").value,
+      category: categorySelect.value,
+      type: document.querySelector("input[name='type']:checked").value,
+      note: document.getElementById("note").value,
+      date: new Date().toISOString().slice(0, 10)
+    };
+    Storage.addRecord(record);
+    alert("記帳成功！");
+    window.location.href = "dashboard.html";
+  });
+</script>

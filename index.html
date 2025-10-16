@@ -1,0 +1,20 @@
+<h1>💰 我的記帳本</h1>
+
+<section id="add-record">
+  <input type="date" id="record-date" required>
+  <select id="record-category">
+    <option value="早餐">早餐</option>
+    <option value="午餐">午餐</option>
+    <option value="晚餐">晚餐</option>
+    <option value="三餐之外的吃食">三餐之外的吃食</option>
+    <option value="玩">玩</option>
+    <option value="日用品">日用品</option>
+  </select>
+  <input type="number" id="record-amount" placeholder="金額" required>
+  <input type="text" id="record-note" placeholder="備註 (可留空)">
+  <button id="add-btn">➕ 新增</button>
+</section>
+
+<hr>
+
+<ul id="record-list"></ul>
